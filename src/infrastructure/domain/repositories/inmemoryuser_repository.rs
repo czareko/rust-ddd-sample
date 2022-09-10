@@ -2,7 +2,7 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use crate::domain::entities::gender_type::Gender;
 use crate::domain::entities::user::User;
-use crate::domain::repositories::userrepository::UserRepository;
+use crate::domain::repositories::user_repository::UserRepository;
 
 pub struct InMemoryUserRepository {
     users: RefCell<HashMap<i32, User>>,
@@ -63,8 +63,8 @@ impl UserRepository for InMemoryUserRepository {
 mod test {
     use crate::domain::entities::gender_type::Gender;
     use crate::domain::entities::user::User;
-    use crate::domain::repositories::userrepository::UserRepository;
-    use crate::infrastructure::domain::repositories::inmemoryuserrepository::InMemoryUserRepository;
+    use crate::domain::repositories::user_repository::UserRepository;
+    use crate::infrastructure::domain::repositories::inmemoryuser_repository::InMemoryUserRepository;
 
     #[test]
     fn should_create_new_repository(){

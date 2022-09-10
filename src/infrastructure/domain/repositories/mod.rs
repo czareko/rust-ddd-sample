@@ -1,1 +1,1 @@
-pub mod inmemoryuserrepository;
+pub mod inmemoryuser_repository;

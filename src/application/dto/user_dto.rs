@@ -25,7 +25,7 @@ pub struct DtoList<T>(pub Vec<T>);
 
 #[cfg(test)]
 mod test{
-    use crate::application::dto::userdto::UserDto;
+    use crate::application::dto::user_dto::UserDto;
     use crate::domain::entities::gender_type::Gender;
     use crate::domain::entities::user::User;
 
