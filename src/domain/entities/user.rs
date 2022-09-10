@@ -49,14 +49,15 @@ mod test {
 
         let new_name: String = Faker.fake();
         let new_age: i32 = Faker.fake();
+        let new_gender: Gender = Faker.fake();
 
         assert_ne!(user.name, new_name);
         assert_ne!(user.age, new_age);
 
-        user.update(new_name.as_str(), new_age,Gender::Male);
+        user.update(new_name.as_str(), new_age,new_gender.clone());
 
         assert_eq!(user.id, id);
         assert_eq!(user.name, new_name);
-        assert_eq!(user.gender, Gender::Male);
+        assert_eq!(user.gender, new_gender.clone());
     }
 }
