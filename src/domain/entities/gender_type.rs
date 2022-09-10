@@ -1,9 +1,19 @@
+use std::fmt::{Display, Formatter};
 use fake::{Dummy};
 
 #[derive(Clone, Copy, Dummy, PartialEq, Eq,Debug)]
 pub enum Gender{
     Female,
     Male,
+}
+
+impl Display for Gender {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        match *self {
+            Gender::Female => write!(f, "female"),
+            Gender::Male => write!(f, "male"),
+        }
+    }
 }
 /*
 impl Dummy<Faker> for Gender{
