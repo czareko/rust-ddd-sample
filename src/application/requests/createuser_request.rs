@@ -1,9 +1,10 @@
 use crate::domain::entities::gender_type::Gender;
 
+#[readonly::make]
 pub struct CreateUserRequest{
-    name: String,
-    age: i32,
-    gender: Gender,
+    pub name: String,
+    pub age: i32,
+    pub gender: Gender,
 }
 
 impl CreateUserRequest {

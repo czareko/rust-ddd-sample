@@ -2,11 +2,12 @@ use crate::domain::entities::gender_type::Gender;
 use crate::domain::entities::user::User;
 
 #[derive(Debug, PartialEq, Eq)]
+#[readonly::make]
 pub struct UserDto{
-    id: i32,
-    name: String,
-    age: i32,
-    gender: Gender,
+    pub id: i32,
+    pub name: String,
+    pub age: i32,
+    pub gender: Gender,
 }
 
 impl UserDto{
