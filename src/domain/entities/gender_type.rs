@@ -1,8 +1,8 @@
 use std::fmt::{Display, Formatter};
 use fake::{Dummy};
 
-#[derive(Clone, Copy, Dummy, PartialEq, Eq,Debug)]
-pub enum Gender{
+#[derive(Clone, Copy, Dummy, PartialEq, Eq, Debug)]
+pub enum Gender {
     Female,
     Male,
 }

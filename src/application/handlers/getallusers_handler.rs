@@ -2,7 +2,7 @@ use std::rc::Rc;
 use crate::application::dto::user_dto::{DtoList, UserDto};
 use crate::domain::repositories::user_repository::UserRepository;
 
-pub struct GetAllUsersHandler{
+pub struct GetAllUsersHandler {
     user_repository: Rc<dyn UserRepository>,
 }
 

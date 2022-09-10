@@ -20,7 +20,7 @@ impl GetUserHandler {
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use std::rc::Rc;
     use fake::{Fake, Faker};
     use fake::faker::lorem::en::Sentence;

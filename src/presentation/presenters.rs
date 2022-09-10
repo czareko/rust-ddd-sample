@@ -39,26 +39,28 @@ mod test{
 
     #[test]
     fn should_display_user_dto() {
-
+        //when
         let user = User::new(1, "Cezary",10,Gender::Male);
         let user_dto = UserDto::to_dto(&user);
-
+        //then
         assert_eq!(user_dto.to_string(), "User #1: Cezary, age 10, gender: male");
 
     }
 
     #[test]
     fn should_display_empty_user_dto_list() {
+        //when
         let user_dto_list: DtoList<UserDto> = DtoList(Vec::new());
-
+        //then
         assert_eq!(user_dto_list.to_string(), "No users")
     }
 
     #[test]
     fn should_display_user_dto_list_with_items() {
+        //when
         let user_a: User = Faker.fake();
         let user_b: User = Faker.fake();
-
+        //given
         let dto_a = UserDto::to_dto(&user_a);
         let dto_b = UserDto::to_dto(&user_b);
 
@@ -74,7 +76,7 @@ mod test{
             expected.push_str(dto.to_string().as_str());
             expected.push('\n');
         }
-
+        //then
         assert_eq!(user_dto_list.to_string(), expected)
     }
 }

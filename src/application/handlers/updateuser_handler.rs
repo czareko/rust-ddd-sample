@@ -2,7 +2,7 @@ use std::rc::Rc;
 use crate::application::requests::updateuser_request::UpdateUserRequest;
 use crate::domain::repositories::user_repository::UserRepository;
 
-pub struct UpdateUserHandler{
+pub struct UpdateUserHandler {
     user_repository: Rc<dyn UserRepository>,
 }
 
@@ -13,7 +13,7 @@ impl UpdateUserHandler {
 
     pub fn execute(&self, request: UpdateUserRequest) -> Result<(), String> {
         let mut user = self.user_repository.by_id(&request.id)?;
-        user.update(request.name.as_str(), request.age,request.gender);
+        user.update(request.name.as_str(), request.age, request.gender);
 
         self.user_repository.save(user);
 
@@ -22,7 +22,7 @@ impl UpdateUserHandler {
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use std::rc::Rc;
     use fake::{Fake, Faker};
     use fake::faker::lorem::en::Sentence;
@@ -68,7 +68,7 @@ mod test{
 
         //then
         let result = update_user_handler.execute(UpdateUserRequest::new(
-            id3,new_name,new_age,new_gender
+            id3, new_name, new_age, new_gender,
         ));
 
         assert_eq!(Ok(()), result);
@@ -104,7 +104,7 @@ mod test{
             UpdateUserHandler::new(Rc::new(user_repository_mock));
 
         let result = update_user_handler.execute(UpdateUserRequest::new(
-            id3,new_name,new_age,new_gender));
+            id3, new_name, new_age, new_gender));
 
         assert_eq!(Err(error_txt), result);
     }
