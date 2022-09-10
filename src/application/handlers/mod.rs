@@ -1,4 +1,4 @@
 pub mod createuser_handler;
-mod getuser_handler;
-mod getallusers_handler;
-mod updateuser_handler;
+pub mod getuser_handler;
+pub mod getallusers_handler;
+pub mod updateuser_handler;
