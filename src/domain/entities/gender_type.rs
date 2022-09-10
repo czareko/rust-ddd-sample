@@ -1,6 +1,6 @@
 use fake::{Dummy};
 
-#[derive(Clone, Dummy, PartialEq, Eq,Debug)]
+#[derive(Clone, Copy, Dummy, PartialEq, Eq,Debug)]
 pub enum Gender{
     Female,
     Male,
