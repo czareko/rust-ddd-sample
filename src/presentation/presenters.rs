@@ -31,7 +31,7 @@ impl Display for DtoList<UserDto> {
 
 
 #[cfg(test)]
-mod test{
+mod test {
     use fake::{Fake, Faker};
     use crate::application::dto::user_dto::{DtoList, UserDto};
     use crate::domain::entities::gender_type::Gender;
@@ -40,11 +40,10 @@ mod test{
     #[test]
     fn should_display_user_dto() {
         //when
-        let user = User::new(1, "Cezary",10,Gender::Male);
+        let user = User::new(1, "Cezary", 10, Gender::Male);
         let user_dto = UserDto::to_dto(&user);
         //then
         assert_eq!(user_dto.to_string(), "User #1: Cezary, age 10, gender: male");
-
     }
 
     #[test]

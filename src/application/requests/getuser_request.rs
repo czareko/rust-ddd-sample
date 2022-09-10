@@ -1,5 +1,5 @@
 #[readonly::make]
-pub struct GetUserRequest{
+pub struct GetUserRequest {
     pub id: i32,
 }
 

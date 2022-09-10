@@ -67,23 +67,22 @@ mod test {
     use crate::infrastructure::domain::repositories::inmemoryuser_repository::InMemoryUserRepository;
 
     #[test]
-    fn should_create_new_repository(){
+    fn should_create_new_repository() {
         //when
         let user_repository = InMemoryUserRepository::new();
         //given
-        let user = User::new(1,"Alan",22,Gender::Male);
+        let user = User::new(1, "Alan", 22, Gender::Male);
         user_repository.save(user);
         //then
-        assert_eq!(1,user_repository.all().len());
-
+        assert_eq!(1, user_repository.all().len());
     }
 
     #[test]
-    fn should_save_and_find_by_id(){
+    fn should_save_and_find_by_id() {
         //when
         let user_repository = InMemoryUserRepository::new();
         //given
-        let user = User::new(1,"Alan",22,Gender::Male);
+        let user = User::new(1, "Alan", 22, Gender::Male);
         user_repository.save(user.clone());
         //then
         let user_a = user_repository.by_id(&1).unwrap();
@@ -94,39 +93,39 @@ mod test {
     }
 
     #[test]
-    fn should_get_all_users(){
+    fn should_get_all_users() {
         //when
         let user_repository = InMemoryUserRepository::new();
         //given
-        let user_a = User::new(1,"Alan",22,Gender::Male);
-        let user_b = User::new(2,"Monika",15,Gender::Female);
+        let user_a = User::new(1, "Alan", 22, Gender::Male);
+        let user_b = User::new(2, "Monika", 15, Gender::Female);
         user_repository.save(user_a);
         user_repository.save(user_b);
         //then
         let users = user_repository.all();
 
-        assert_eq!(2,users.len());
+        assert_eq!(2, users.len());
     }
 
     #[test]
-    fn should_return_next_id(){
+    fn should_return_next_id() {
         //when
         let user_repository = InMemoryUserRepository::new();
         //given
-        let user_a = User::new(user_repository.next_identity(),"Alan",22,Gender::Male);
+        let user_a = User::new(user_repository.next_identity(), "Alan", 22, Gender::Male);
         user_repository.save(user_a);
-        let user_b = User::new(user_repository.next_identity(),"Monika",15,Gender::Female);
+        let user_b = User::new(user_repository.next_identity(), "Monika", 15, Gender::Female);
         user_repository.save(user_b);
 
         //then
-        assert_eq!(3,user_repository.next_identity());
+        assert_eq!(3, user_repository.next_identity());
     }
 
     #[test]
-    fn should_create_repository_with_samples(){
+    fn should_create_repository_with_samples() {
         //when
         let user_repository = InMemoryUserRepository::new_with_samples();
         //then
-        assert_eq!(2,user_repository.all().len());
+        assert_eq!(2, user_repository.all().len());
     }
 }
