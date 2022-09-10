@@ -28,7 +28,7 @@ mod test {
     use crate::domain::entities::user::User;
 
     #[test]
-    fn create_user(){
+    fn should_create_user(){
         let id: i32 = Faker.fake();
         let name: String = Faker.fake();
         let age: i32 = Faker.fake();
@@ -43,7 +43,7 @@ mod test {
 
     }
     #[test]
-    fn update_user(){
+    fn should_update_user(){
         let mut user: User = Faker.fake();
         let id = user.id.clone();
 
